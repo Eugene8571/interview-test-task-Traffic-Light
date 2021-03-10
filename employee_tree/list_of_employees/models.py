@@ -11,6 +11,9 @@ class Employees(models.Model):
     department = models.CharField("Департамент", max_length=150)
     position = models.CharField("Должность", max_length=150)
 
-
+    def __str__(self):
+        return self.last_name + ' '\
+         + self.first_name[0] + '. '\
+          + self.middle_name[0] + '.'
 
 
