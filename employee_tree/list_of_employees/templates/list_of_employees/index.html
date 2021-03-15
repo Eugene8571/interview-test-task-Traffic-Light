@@ -1,0 +1,56 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'list_of_employees/style.css' %}">
+
+<h1>Employees Tree</h1>
+
+{% block content %}
+
+<div class="tree root">
+
+<form method="get">
+    {% if not show_departments %}
+    <input type="hidden" name="show_departments" value="show">
+    {% endif %}
+    <button type="submit">Departments</button>
+</form>
+{% if show_departments %}
+    <div class="departments">
+    {% for department in depatrments_list %}
+        <form method="get">
+            {% if selected_department and department == selected_department %}
+                <input type="hidden" name="show_departments" value="show">
+            {% else %}
+                <input type="hidden" name="show_departments" value="show">
+                <input type="hidden" name="department" value="{{department}}">
+            {% endif %}
+            <h4><button type="submit">
+            {{department}}</button></h4>
+        </form>
+        {% if department == selected_department %}
+            {% for rank in ranks %}
+                <form method="get">
+                    {% if selected_rank and rank == selected_rank %}
+                        <input type="hidden" name="show_departments" value="show">
+                        <input type="hidden" name="department" value="{{department}}">
+                    {% else %}
+                        <input type="hidden" name="show_departments" value="show">
+                        <input type="hidden" name="department" value="{{department}}">
+                        <input type="hidden" name="rank" value="{{rank}}">
+                    {% endif %}
+                    <h4><button type="submit">- - {{rank}}</button></h4>
+                </form>
+                {% if rank == selected_rank %}
+                    {% for employee in employees %}
+                        <li>{{ employee.last_name }} </li>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endif %}
+
+</div>
+
+{% endblock %}
