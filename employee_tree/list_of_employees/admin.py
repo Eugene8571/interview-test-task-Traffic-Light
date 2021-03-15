@@ -4,7 +4,7 @@ from django.contrib import admin
 from list_of_employees.models import Employees
 
 class EmployeessProfileAdmin(admin.ModelAdmin):
-    list_display = ['employee', 'position', 'department', 'salary', 'date_of_employment']
+    list_display = ['employee', 'rank', 'position', 'department', 'salary', 'date_of_employment']
 
     def employee(self, obj):
         return obj.last_name + ' '\
