@@ -33,19 +33,19 @@
         </form>
         {% if department == selected_department %}
             <div class="container border">
-            {% for rank in ranks %}
+            {% for position in positions %}
                 <form method="get">
-                    {% if selected_rank and rank == selected_rank %}
+                    {% if selected_position and position == selected_position %}
                         <input type="hidden" name="show_departments" value="show">
                         <input type="hidden" name="department" value="{{department}}">
                     {% else %}
                         <input type="hidden" name="show_departments" value="show">
                         <input type="hidden" name="department" value="{{department}}">
-                        <input type="hidden" name="rank" value="{{rank}}">
+                        <input type="hidden" name="position" value="{{position}}">
                     {% endif %}
-                    <h4><button class="btn btn-outline-secondary" type="submit">{{rank}}</button></h4>
+                    <h4><button class="btn btn-outline-secondary" type="submit">{{position}}</button></h4>
                 </form>
-                {% if rank == selected_rank %}
+                {% if position == selected_position %}
                     <div class="container list-group employees">
                     {% for employee in employees %}
                         <li class="list-group-item list-group-item-light">{{ employee.last_name }} {{ employee.first_name|make_list|first }}. {{employee.middle_name|make_list|first}}</li>

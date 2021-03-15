@@ -20,31 +20,39 @@ def display_tree(request):
             depatrments_list.append(e.department)
     depatrments_list.sort()
 
-    ranks = ['I', 'II', 'III', 'IV', 'V']
+    positions = [
+        'Team Leader',
+        'Manager',
+        'Assistant Manager',
+        'Director',
+        'Administrator'
+        ]
     show_departments = None
     department = None
-    rank = None
+    position = None
 
     if request.method == 'GET':
         if 'show_departments' in request.GET:
             show_departments = request.GET['show_departments']
         if 'department' in request.GET:
             department = request.GET['department']
-        if 'rank' in request.GET:
-            rank = request.GET['rank']
+        if 'position' in request.GET:
+            position = request.GET['position']
     employees = None
-    if department and rank:
+    if department and position:
+        print(f"{'op'=}")
         employees = Employees.objects.filter(
             department=department,
-            rank=rank)
-
+            position=position.upper())
+        print(f"{position=}")
+        print(f"{employees=}")
     context = {
         'depatrments_list': depatrments_list,
-        'ranks': ranks,
+        'positions': positions,
         'employees': employees,
         'show_departments': show_departments,
         'selected_department': department,
-        'selected_rank': rank,
+        'selected_position': position,
     }
     return render(
         request,

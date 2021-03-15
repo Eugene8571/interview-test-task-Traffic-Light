@@ -16,11 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from hello.views import index
 from list_of_employees.views import display_tree
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', index),
     path('', display_tree)
 ]

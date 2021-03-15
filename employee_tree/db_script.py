@@ -54,5 +54,5 @@ def generate_employee():
     new_employee.save()
 
 if __name__ == "__main__":
-    for x in range(1000):
+    for x in range(49000):
         generate_employee()
