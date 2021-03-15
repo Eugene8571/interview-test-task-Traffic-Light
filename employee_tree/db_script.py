@@ -23,7 +23,17 @@ def username_generator():
 
 list_of_departments = 'abcdefghijklmnopqrstuvwxyz'
 
-list_of_positions = ['I', 'II', 'III', 'IV', 'V']
+ranks = ['I', 'II', 'III', 'IV', 'V']
+
+list_of_positions = [
+'Team Leader',
+'Manager',
+'Assistant Manager',
+'Director',
+'Administrator'
+]
+
+
 
 def generate_employee():
     full_name = username_generator()
@@ -39,7 +49,7 @@ def generate_employee():
         salary = random.randint(15, 200),
         department = list_of_departments[dep_index].upper(),
         position = list_of_positions[pos_index].upper(),
-        rank = list_of_positions[pos_index].upper(),
+        rank = ranks[pos_index].upper(),
         )
     new_employee.save()
 

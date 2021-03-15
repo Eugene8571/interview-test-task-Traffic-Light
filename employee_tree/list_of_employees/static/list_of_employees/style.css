@@ -1,9 +1,10 @@
 
-body {
-    /*background-color: blue;*/
+
+.border {
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
-.tree {
-    /*background-color: yellow;*/
+div.container.list-group.employees {
+    margin-bottom: 15px;
 }
-

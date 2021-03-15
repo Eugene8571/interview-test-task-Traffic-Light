@@ -1,21 +1,25 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'list_of_employees/style.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<h1>Employees Tree</h1>
+
+<div class="container">
+    <h1>Employees Tree</h1>
+</div>
 
 {% block content %}
 
-<div class="tree root">
+<div class="container border">
 
 <form method="get">
     {% if not show_departments %}
     <input type="hidden" name="show_departments" value="show">
     {% endif %}
-    <button type="submit">Departments</button>
+    <button class="btn btn-outline-secondary" type="submit">Departments</button>
 </form>
 {% if show_departments %}
-    <div class="departments">
+    <div class="container border">
     {% for department in depatrments_list %}
         <form method="get">
             {% if selected_department and department == selected_department %}
@@ -24,10 +28,11 @@
                 <input type="hidden" name="show_departments" value="show">
                 <input type="hidden" name="department" value="{{department}}">
             {% endif %}
-            <h4><button type="submit">
+            <h4><button class="btn btn-outline-secondary" type="submit">
             {{department}}</button></h4>
         </form>
         {% if department == selected_department %}
+            <div class="container border">
             {% for rank in ranks %}
                 <form method="get">
                     {% if selected_rank and rank == selected_rank %}
@@ -38,14 +43,17 @@
                         <input type="hidden" name="department" value="{{department}}">
                         <input type="hidden" name="rank" value="{{rank}}">
                     {% endif %}
-                    <h4><button type="submit">- - {{rank}}</button></h4>
+                    <h4><button class="btn btn-outline-secondary" type="submit">{{rank}}</button></h4>
                 </form>
                 {% if rank == selected_rank %}
+                    <div class="container list-group employees">
                     {% for employee in employees %}
-                        <li>{{ employee.last_name }} </li>
+                        <li class="list-group-item list-group-item-light">{{ employee.last_name }} {{ employee.first_name|make_list|first }}. {{employee.middle_name|make_list|first}}</li>
                     {% endfor %}
+                    </div>
                 {% endif %}
             {% endfor %}
+            </div>
         {% endif %}
     {% endfor %}
     </div>
