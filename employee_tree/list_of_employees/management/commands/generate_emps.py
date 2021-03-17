@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0,'../../..')
 
-from db_scripts.generate_employee import generate_employee
+from db_scripts.generate_employee_fboy import generate_employee
 
 class Command(BaseCommand):
     help = 'Generate n employees'

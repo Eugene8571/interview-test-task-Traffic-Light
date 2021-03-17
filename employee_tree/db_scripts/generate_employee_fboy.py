@@ -32,36 +32,40 @@ list_of_positions = [
 ]
 
 
+import factory.random
 
 class RandomEmployeeFactory(factory.Factory):
     class Meta:
         model = Employees
-
+        
     first_name = factory.Faker('first_name')
     last_name = factory.Faker('last_name')
-    middle_name = random.choice(adjectives)
-    date_of_employment = datetime.today() - timedelta(days=random.randint(1,1000))
-    salary = random.randint(25, 100)
-    department = random.choice(list_of_departments).upper()
-    position = random.choice(list_of_positions).upper()
-    rank = random.choice(adjectives)
+    # middle_name = random.choice(adjectives)
+    # date_of_employment = datetime.today() - timedelta(days=random.randint(1,1000))
+    # salary = random.randint(25, 100)
+    # department = random.choice(list_of_departments).upper()
+    # position = random.choice(list_of_positions).upper()
+    # rank = random.choice(adjectives)
 
 
-# emp = RandomEmployeeFactory()
-# print(f"{emp.first_name=}")
-# print(f"{emp.middle_name=}")
-# print(f"{emp.first_name=}")
-# print(f"{emp.date_of_employment=}")
-# print(f"{emp.salary=}")
-# print(f"{emp.department=}")
-# print(f"{emp.position=}")
+def generate_employee():
+    emp = RandomEmployeeFactory()
+    new_employee = Employees(
+        first_name = emp.first_name,
+        last_name = emp.last_name,
+        # factory генерирует случайные значения для себя и блочит random,
+        # как если бы задан seed()
+        middle_name = random.choice(adjectives),
+        date_of_employment = datetime.today() - timedelta(days=random.randint(1,1000)),
+        salary = random.randint(25, 100),
+        department = random.choice(list_of_departments).upper(),
+        position = random.choice(list_of_positions).upper(),
+        rank = random.choice(adjectives),
+    )
+    new_employee.save()
 
+if __name__ == "__main__":
 
-
-
-
-
-
-
-
+    for x in range(5):
+        generate_employee()
 
