@@ -18,3 +18,8 @@ class Employees(models.Model):
           + self.middle_name[0] + '.'
 
 
+class Departments(models.Model):
+    department_name = models.CharField("Департамент", unique=True, max_length=150, default="***")
+    head = models.CharField("Глава", max_length=150, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+
