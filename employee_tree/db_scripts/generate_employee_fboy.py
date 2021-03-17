@@ -40,12 +40,6 @@ class RandomEmployeeFactory(factory.Factory):
         
     first_name = factory.Faker('first_name')
     last_name = factory.Faker('last_name')
-    # middle_name = random.choice(adjectives)
-    # date_of_employment = datetime.today() - timedelta(days=random.randint(1,1000))
-    # salary = random.randint(25, 100)
-    # department = random.choice(list_of_departments).upper()
-    # position = random.choice(list_of_positions).upper()
-    # rank = random.choice(adjectives)
 
 
 def generate_employee():
