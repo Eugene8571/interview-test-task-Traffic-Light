@@ -22,6 +22,7 @@ https://github.com/Eugene8571/AI_University_test_task
 
 3. из factory_boy использовал генерацию имен. файл db_scripts/generate_employee_fboy.py
 
+Видео с правками:
 https://user-images.githubusercontent.com/40310109/111535046-56aa7d00-8771-11eb-990f-ff70b3bb4bd2.mp4
 
 
