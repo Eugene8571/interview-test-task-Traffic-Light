@@ -6,7 +6,6 @@ https://user-images.githubusercontent.com/40310109/111535046-56aa7d00-8771-11eb-
 
 для запуска локально, из папки репозитария выполнить:
 ~~~~bash
-python -m venv env
 env\Scripts\activate
 cd employee_tree
 pip install -r requirements.txt
