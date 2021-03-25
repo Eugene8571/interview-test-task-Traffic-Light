@@ -38,7 +38,6 @@ https://user-images.githubusercontent.com/40310109/111535046-56aa7d00-8771-11eb-
 ~~~~bash
 env\Scripts\activate
 cd employee_tree
-pip install -r requirements.txt
 python manage.py runserver
 ~~~~
 
