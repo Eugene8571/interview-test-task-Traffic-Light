@@ -1,25 +1,26 @@
-admin usrname and password:
-user
-0
 
-Demo:
+Видеодемонстрация:
 
-https://user-images.githubusercontent.com/40310109/111217166-f20ae900-85dd-11eb-8114-8676d03a7748.mp4
-
-Дополнения:
-
-1. Департаменты отдельной моделью со счётчиком персонала.
-
-2. Наполнение базы данных происходит по команде
->>> python manage.py generate_emps
-
-если понадобится сгенерировать департаменты
->>> python manage.py generate_departments
-
-3. из factory_boy использовал генерацию имен. файл db_scripts/generate_employee_fboy.py
-
-Видео с правками:
 https://user-images.githubusercontent.com/40310109/111535046-56aa7d00-8771-11eb-990f-ff70b3bb4bd2.mp4
 
 
+для запуска локально, из папки репозитария выполнить:
+~~~~bash
+python -m venv env
+env\Scripts\activate
+cd employee_tree
+pip install -r requirements.txt
+python manage.py runserver
+~~~~
 
+admin usrname: user, password: 0
+
+Наполнение базы данных происходит по команде
+~~~~bash
+python manage.py generate_emps
+~~~~
+
+если понадобится сгенерировать департаменты
+~~~~bash
+python manage.py generate_departments
+~~~~
