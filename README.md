@@ -31,8 +31,7 @@ Django 3+, Python 3.5+, база на свое усмотрение
 
 ### Результат:
 
-https://user-images.githubusercontent.com/40310109/111535046-56aa7d00-8771-11eb-990f-ff70b3bb4bd2.mp4
-
+https://user-images.githubusercontent.com/40310109/111217166-f20ae900-85dd-11eb-8114-8676d03a7748.mp4
 
 для запуска локально, из папки репозитария выполнить:
 ~~~~bash
